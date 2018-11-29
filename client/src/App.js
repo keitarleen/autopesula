@@ -1,25 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import NavBar from '../src/components/NavBar';
+import Login from './components/Login';
+import DisplayAll from './components/DisplayAll';
+import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+          <NavBar/>
+          <Router history={hashHistory}>
+              <Route path='/' component={Login}>
+                <IndexRoute/>
+                  <Route path='all' component={DisplayAll}/>
+              </Route>
+          </Router>
       </div>
     );
   }
