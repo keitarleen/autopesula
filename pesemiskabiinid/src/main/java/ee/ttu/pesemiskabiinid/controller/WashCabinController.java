@@ -1,13 +1,16 @@
 package ee.ttu.pesemiskabiinid.controller;
 
 import ee.ttu.pesemiskabiinid.model.WashCabin;
+import ee.ttu.pesemiskabiinid.model.WashCabinDto;
 import ee.ttu.pesemiskabiinid.service.WashCabinService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.SQLException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/cabin")
@@ -25,4 +28,9 @@ public class WashCabinController {
         service.save(cabin);
         return cabin;
     }
+
+   @GetMapping("/getAll")
+   public List<WashCabinDto> getAll() throws SQLException {
+        return service.getAll();
+   }
 }
