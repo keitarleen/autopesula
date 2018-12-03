@@ -1,7 +1,9 @@
 package ee.ttu.pesemiskabiinid.controller;
 
 import ee.ttu.pesemiskabiinid.model.WashCabin;
+import ee.ttu.pesemiskabiinid.model.WashCabinCategoryDto;
 import ee.ttu.pesemiskabiinid.model.WashCabinDto;
+import ee.ttu.pesemiskabiinid.model.WashCabinStatementDto;
 import ee.ttu.pesemiskabiinid.service.WashCabinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,5 +32,20 @@ public class WashCabinController {
    @GetMapping("/getAll")
    public List<WashCabinDto> getAll() throws SQLException {
         return service.getAll();
+   }
+
+   @GetMapping("/getActiveInactive")
+    public List<WashCabinDto> getActiveInactiveCabins() throws SQLException {
+        return service.getActiveInactiveCabins();
+   }
+
+   @GetMapping("/getStatement")
+    public List<WashCabinStatementDto> getCabinStatements() throws SQLException {
+        return service.getCabinStatement();
+   }
+
+   @GetMapping("/getCategory")
+    public List<WashCabinCategoryDto> getCategory() throws SQLException {
+        return service.getCabinCategories();
    }
 }

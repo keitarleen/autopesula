@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Max;
 import java.time.LocalDate;
 
 @Data
@@ -11,6 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class WashCabin {
 
+    @Max(3)
     private String id;
     private Employee registrator;
     private String state;
