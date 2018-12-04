@@ -80,11 +80,11 @@ public class WashCabinRepository {
     }
 
     public List<WashCabinCategoryDto> getWashCabinCategory() throws SQLException {
-        String sql = "SELECT pko.pesemiskabiini_kood, pesemiskabiini_kategooria.nimetus & '(' & pesemiskabiini_kategooria_tyyp.nimetus & ')' & AS kategooria " +
+        String sql = "SELECT pko.pesemiskabiini_kood, pesemiskabiini_kategooria.nimetus || '(' || pesemiskabiini_kategooria_tyyp.nimetus || ')' AS kategooria " +
                 "FROM pesemiskabiini_kategooria_tyyp " +
                 "INNER JOIN pesemiskabiini_kategooria " +
                 "ON pesemiskabiini_kategooria_tyyp.pesemiskabiini_kategooria_tyyp_kood = pesemiskabiini_kategooria.pesemiskabiini_kategooria_tyyp_kood " +
-                "INNER JOIN pesemiskabiini_kategooria_omamine pko ON pesemiskabiini_kategooria.pesemiskabiini_kategooria_kood = pko.pesemiskabiini_kategooria_kood;";
+                "INNER JOIN pesemiskabiini_kategooria_omamine pko ON pesemiskabiini_kategooria.pesemiskabiini_kategooria_kood = pko.pesemiskabiini_kategooria_kood";
         ResultSet rs = ds.getConnection().createStatement().executeQuery(sql);
         List<WashCabinCategoryDto> categories = new ArrayList<>();
         while (rs.next()) {
@@ -126,7 +126,7 @@ public class WashCabinRepository {
             cabins.add(
                     new WashCabinDto(
                             rs.getString("pesemiskabiini_kood"),
-                            rs.getString("nimetus"),
+                            rs.getString("pesemiskabiini_nimetus"),
                             rs.getString("tyyp"),
                             rs.getString("seisund")
                             )
