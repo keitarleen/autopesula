@@ -1,9 +1,6 @@
 package ee.ttu.pesemiskabiinid.service;
 
-import ee.ttu.pesemiskabiinid.model.WashCabin;
-import ee.ttu.pesemiskabiinid.model.WashCabinCategoryDto;
-import ee.ttu.pesemiskabiinid.model.WashCabinDto;
-import ee.ttu.pesemiskabiinid.model.WashCabinStatementDto;
+import ee.ttu.pesemiskabiinid.model.*;
 import ee.ttu.pesemiskabiinid.repository.WashCabinRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,5 +36,9 @@ public class WashCabinService {
 
     public List<WashCabinCategoryDto> getCabinCategories() throws SQLException {
         return repository.getWashCabinCategory();
+    }
+
+    public List<WashCabinDetailDto> getCabinDetails(String id) throws SQLException {
+        return repository.getCabinDetail(id);
     }
 }

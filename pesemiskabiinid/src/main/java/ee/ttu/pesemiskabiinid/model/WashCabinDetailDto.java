@@ -13,12 +13,11 @@ public class WashCabinDetailDto {
     @Max(3)
     public String id;
     public String name;
-    public String type;
     public String cabinType;
     public String state;
     public Integer carLength;
-    public Building building;
+    public String building;
     public LocalDate dateCreated;
-    public Employee employee;
+    public String employee;
     public String email;
 }

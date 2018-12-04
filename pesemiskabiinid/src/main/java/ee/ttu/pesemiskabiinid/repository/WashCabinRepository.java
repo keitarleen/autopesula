@@ -114,9 +114,29 @@ public class WashCabinRepository {
                 "       LEFT JOIN pesemiskabiini_tyyp pt ON p.pesemiskabiini_tyyp_kood = pt.pesemiskabiini_tyyp_kood " +
                 "       LEFT JOIN pesemiskabiini_seisundi_liik psl ON p.pesemiskabiini_seisundi_liik_kood = psl.pesemiskabiini_seisundi_liik_kood " +
                 "WHERE p.pesemiskabiini_kood=?";
-        ResultSet rs = ds.getConnection().createStatement().executeQuery(sql);
-        // TODO: finish this thing and API is done
-        return new ArrayList<WashCabinDetailDto>();
+        PreparedStatement ps = ds.getConnection().prepareStatement(sql);
+        String preparedStatement = ps.toString();
+        // ResultSet rs = ds.getConnection().createStatement().executeQuery(sql);
+        ps.setString(1, id);
+        ResultSet rs = ds.getConnection().createStatement().executeQuery(preparedStatement);
+        List<WashCabinDetailDto> cabins = new ArrayList<>();
+        while (rs.next()) {
+            cabins.add(
+                    new WashCabinDetailDto(
+                            rs.getString("pesemiskabiini_kood"),
+                            rs.getString("nimetus"),
+                            rs.getString("kabiini_tyyp"),
+                            rs.getString("seisundi_liik"),
+                            rs.getInt("max_auto_pikkus"),
+                            rs.getString("hoone_kood"),
+                            rs.getDate("reg_aeg").toLocalDate(),
+                            rs.getString("tootaja"),
+                            rs.getString("e_meil")
+                    )
+            );
+        }
+
+        return cabins;
     }
 
     private List<WashCabinDto> getCabinDto(String sql) throws SQLException {
