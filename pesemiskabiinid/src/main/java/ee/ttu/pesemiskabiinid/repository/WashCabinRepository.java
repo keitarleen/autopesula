@@ -122,6 +122,14 @@ public class WashCabinRepository {
         return cabins;
     }
 
+    public String endCabin(String id) throws SQLException {
+        String sql = "UPDATE pesemiskabiin SET pesemiskabiini_seisundi_liik_kood='LOP' WHERE pesemiskabiini_kood=?";
+        PreparedStatement ps = ds.getConnection().prepareStatement(sql);
+        ps.setString(1, id);
+        ps.executeUpdate();
+        return id;
+    }
+
     private List<WashCabinDto> getCabinDto(String sql) throws SQLException {
         ResultSet rs = ds.getConnection().createStatement().executeQuery(sql);
         List<WashCabinDto> cabins = new ArrayList<>();

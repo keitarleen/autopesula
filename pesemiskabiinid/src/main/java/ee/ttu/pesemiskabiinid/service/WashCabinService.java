@@ -37,4 +37,8 @@ public class WashCabinService {
     public List<WashCabinDetailDto> getAllCabins() throws SQLException {
         return repository.getAllCabins();
     }
+
+    public String endCabin(String id) throws SQLException {
+        return repository.endCabin(id);
+    }
 }
