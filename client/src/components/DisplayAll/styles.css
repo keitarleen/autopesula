@@ -18,10 +18,24 @@ table {
 
 table, th, td {
     border: #61dafb solid 1px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: lighter;
+    color: black;
 }
+
 
 td, th {
     padding: 5px;
+    max-width: 120px;
+    min-width: 120px;
+}
+
+.code {
     max-width: 100px;
     min-width: 100px;
+}
+
+.regEmail {
+    max-width: 180px;
+    min-width: 180px;
 }

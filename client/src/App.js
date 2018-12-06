@@ -4,6 +4,8 @@ import Login from './components/Login';
 import DisplayAll from './components/DisplayAll';
 import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 import Layout from './components/Layout';
+import DisplayByState from './components/DisplayByState';
+import EndCabin from './components/EndCabin';
 
 class App extends Component {
   render() {
@@ -14,6 +16,8 @@ class App extends Component {
                   <IndexRoute/>
                   <Route path='login' component={Login}/>
                   <Route path='all' component={DisplayAll}/>
+                  <Route path='states' component={DisplayByState}/>
+                  <Route path='endCabin' component={EndCabin}/>
               </Route>
           </Router>
       </div>

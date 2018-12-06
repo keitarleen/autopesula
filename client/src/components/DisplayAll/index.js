@@ -32,22 +32,30 @@ class DisplayAll extends Component {
                 <table>
                 <tbody>
                 <tr>
-                    <th>Id</th>
-                    <th>Nimi</th>
-                    <th>Tüüp</th>
-                    <th>Olek</th>
+                    <th className='code'>Kabiini kood</th>
+                    <th>Kabiini nimi</th>
+                    <th>Kabiini tüüp</th>
+                    <th>Max auto pikkus</th>
+                    <th className='code'>Hoone kood</th>
+                    <th>Hetkeseisund</th>
+                    <th>Registreerija</th>
+                    <th className='regEmail'>Reg email</th>
                 </tr>
                 </tbody>
                 </table>
 
-                    {Object.keys(this.state.allCabins).map((key,id) =>
+                    {Object.keys(this.state.allCabins).map((key) =>
                         <table >
-                            <tbody key={id}>
+                            <tbody key={this.state.allCabins[key].id}>
                                 <tr>
-                                    <td>{this.state.allCabins[key].id}</td>
+                                    <td className='code'>{this.state.allCabins[key].id}</td>
                                     <td>{this.state.allCabins[key].name}</td>
-                                    <td>{this.state.allCabins[key].type}</td>
+                                    <td>{this.state.allCabins[key].cabinType}</td>
+                                    <td>{this.state.allCabins[key].carLength}</td>
+                                    <td className='code'>{this.state.allCabins[key].building}</td>
                                     <td>{this.state.allCabins[key].state}</td>
+                                    <td>{this.state.allCabins[key].employee}</td>
+                                    <td className='regEmail'>{this.state.allCabins[key].email}</td>
                                 </tr>
                             </tbody>
                         </table>

@@ -26,7 +26,7 @@ input {
 .container-centre input {
     border-radius: 4px;
     display: block;
-    border: 1px solid lightgrey;
+    border: #61dafb solid 1px;
     max-width: 278px;
     min-width: 278px;
     margin-bottom: 10px;
