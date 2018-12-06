@@ -26,11 +26,6 @@ public class WashCabinController {
         return cabin;
     }
 
-    @GetMapping("/getAll")
-    public List<WashCabinDto> getAll() throws SQLException {
-        return service.getAll();
-    }
-
     @GetMapping("/getActiveInactive")
     public List<WashCabinDto> getActiveInactiveCabins() throws SQLException {
         return service.getActiveInactiveCabins();
@@ -46,8 +41,8 @@ public class WashCabinController {
         return service.getCabinCategories();
     }
 
-    @GetMapping("/getCabinDetails/{id}")
-    public WashCabinDetailDto getCabinDetails(@PathVariable("id") String id) throws SQLException {
-        return service.getCabinDetails(id);
+    @GetMapping("/getAll")
+    public List<WashCabinDetailDto> getAllCabins() throws SQLException {
+        return service.getAllCabins();
     }
 }

@@ -40,15 +40,6 @@ public class WashCabinRepository {
         preparedStatement.executeUpdate();
     }
 
-    public List<WashCabinDto> getAll() throws SQLException {
-        String sql = "SELECT p.pesemiskabiini_kood, p.nimetus AS pesemiskabiini_nimetus, pt.nimetus AS tyyp, ps.nimetus AS seisund " +
-                "FROM pesemiskabiin AS p " +
-                "LEFT JOIN isik AS i ON i.isik_id=p.registreerija_id " +
-                "LEFT JOIN pesemiskabiini_tyyp AS pt ON pt.pesemiskabiini_tyyp_kood=p.pesemiskabiini_tyyp_kood " +
-                "LEFT JOIN pesemiskabiini_seisundi_liik AS ps ON ps.pesemiskabiini_seisundi_liik_kood=p.pesemiskabiini_seisundi_liik_kood";
-        return getCabinDto(sql);
-    }
-
     public List<WashCabinDto> getActiveInactiveCabins() throws SQLException {
         String sql = "SELECT p.pesemiskabiini_kood, p.nimetus AS pesemiskabiini_nimetus, pt.nimetus AS tyyp, ps.nimetus AS seisund " +
                 "FROM pesemiskabiin AS p " +
@@ -98,7 +89,7 @@ public class WashCabinRepository {
         return categories;
     }
 
-    public WashCabinDetailDto getCabinDetail(String id) throws SQLException {
+    public List<WashCabinDetailDto> getAllCabins() throws SQLException {
         String sql = "SELECT p.pesemiskabiini_kood," +
                 "       p.nimetus," +
                 "       pt.nimetus                   AS kabiini_tyyp, " +
@@ -112,13 +103,12 @@ public class WashCabinRepository {
                 "       LEFT JOIN isik AS i ON i.isik_id = p.registreerija_id " +
                 "       LEFT JOIN hoone h ON p.hoone_kood = h.hoone_kood " +
                 "       LEFT JOIN pesemiskabiini_tyyp pt ON p.pesemiskabiini_tyyp_kood = pt.pesemiskabiini_tyyp_kood " +
-                "       LEFT JOIN pesemiskabiini_seisundi_liik psl ON p.pesemiskabiini_seisundi_liik_kood = psl.pesemiskabiini_seisundi_liik_kood " +
-                "WHERE p.pesemiskabiini_kood='" + id + "'";
+                "       LEFT JOIN pesemiskabiini_seisundi_liik psl ON p.pesemiskabiini_seisundi_liik_kood = psl.pesemiskabiini_seisundi_liik_kood";
         ResultSet rs = ds.getConnection().createStatement().executeQuery(sql);
-        WashCabinDetailDto cabin = null;
+        List<WashCabinDetailDto> cabins = new ArrayList<>();
         while (rs.next()) {
-            cabin = new WashCabinDetailDto(
-                    id,
+            cabins.add(new WashCabinDetailDto(
+                    rs.getString("pesemiskabiini_kood"),
                     rs.getString("nimetus"),
                     rs.getString("kabiini_tyyp"),
                     rs.getString("seisundi_liik"),
@@ -127,9 +117,9 @@ public class WashCabinRepository {
                     rs.getDate("reg_aeg").toLocalDate(),
                     rs.getString("tootaja"),
                     rs.getString("e_meil")
-            );
+            ));
         }
-        return cabin;
+        return cabins;
     }
 
     private List<WashCabinDto> getCabinDto(String sql) throws SQLException {

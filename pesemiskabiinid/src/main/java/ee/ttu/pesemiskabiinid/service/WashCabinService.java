@@ -22,10 +22,6 @@ public class WashCabinService {
         repository.save(cabin);
     }
 
-    public List<WashCabinDto> getAll() throws SQLException {
-        return repository.getAll();
-    }
-
     public List<WashCabinDto> getActiveInactiveCabins() throws SQLException {
         return repository.getActiveInactiveCabins();
     }
@@ -38,7 +34,7 @@ public class WashCabinService {
         return repository.getWashCabinCategory();
     }
 
-    public WashCabinDetailDto getCabinDetails(String id) throws SQLException {
-        return repository.getCabinDetail(id);
+    public List<WashCabinDetailDto> getAllCabins() throws SQLException {
+        return repository.getAllCabins();
     }
 }
