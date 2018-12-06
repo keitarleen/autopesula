@@ -98,7 +98,7 @@ public class WashCabinRepository {
         return categories;
     }
 
-    public List<WashCabinDetailDto> getCabinDetail(String id) throws SQLException {
+    public WashCabinDetailDto getCabinDetail(String id) throws SQLException {
         String sql = "SELECT p.pesemiskabiini_kood," +
                 "       p.nimetus," +
                 "       pt.nimetus                   AS kabiini_tyyp, " +
@@ -106,37 +106,30 @@ public class WashCabinRepository {
                 "       p.max_auto_pikkus," +
                 "       p.hoone_kood," +
                 "       p.reg_aeg," +
-                "       i.eesnimi & ' ' & i.perenimi AS tootaja," +
+                "       i.eesnimi || ' ' || i.perenimi AS tootaja," +
                 "       i.e_meil " +
                 "FROM pesemiskabiin AS p " +
                 "       LEFT JOIN isik AS i ON i.isik_id = p.registreerija_id " +
                 "       LEFT JOIN hoone h ON p.hoone_kood = h.hoone_kood " +
                 "       LEFT JOIN pesemiskabiini_tyyp pt ON p.pesemiskabiini_tyyp_kood = pt.pesemiskabiini_tyyp_kood " +
                 "       LEFT JOIN pesemiskabiini_seisundi_liik psl ON p.pesemiskabiini_seisundi_liik_kood = psl.pesemiskabiini_seisundi_liik_kood " +
-                "WHERE p.pesemiskabiini_kood=?";
-        PreparedStatement ps = ds.getConnection().prepareStatement(sql);
-        String preparedStatement = ps.toString();
-        // ResultSet rs = ds.getConnection().createStatement().executeQuery(sql);
-        ps.setString(1, id);
-        ResultSet rs = ds.getConnection().createStatement().executeQuery(preparedStatement);
-        List<WashCabinDetailDto> cabins = new ArrayList<>();
+                "WHERE p.pesemiskabiini_kood='" + id + "'";
+        ResultSet rs = ds.getConnection().createStatement().executeQuery(sql);
+        WashCabinDetailDto cabin = null;
         while (rs.next()) {
-            cabins.add(
-                    new WashCabinDetailDto(
-                            rs.getString("pesemiskabiini_kood"),
-                            rs.getString("nimetus"),
-                            rs.getString("kabiini_tyyp"),
-                            rs.getString("seisundi_liik"),
-                            rs.getInt("max_auto_pikkus"),
-                            rs.getString("hoone_kood"),
-                            rs.getDate("reg_aeg").toLocalDate(),
-                            rs.getString("tootaja"),
-                            rs.getString("e_meil")
-                    )
+            cabin = new WashCabinDetailDto(
+                    id,
+                    rs.getString("nimetus"),
+                    rs.getString("kabiini_tyyp"),
+                    rs.getString("seisundi_liik"),
+                    rs.getInt("max_auto_pikkus"),
+                    rs.getString("hoone_kood"),
+                    rs.getDate("reg_aeg").toLocalDate(),
+                    rs.getString("tootaja"),
+                    rs.getString("e_meil")
             );
         }
-
-        return cabins;
+        return cabin;
     }
 
     private List<WashCabinDto> getCabinDto(String sql) throws SQLException {
@@ -149,7 +142,7 @@ public class WashCabinRepository {
                             rs.getString("pesemiskabiini_nimetus"),
                             rs.getString("tyyp"),
                             rs.getString("seisund")
-                            )
+                    )
             );
         }
         return cabins;

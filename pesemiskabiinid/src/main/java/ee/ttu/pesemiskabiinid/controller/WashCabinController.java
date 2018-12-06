@@ -26,28 +26,28 @@ public class WashCabinController {
         return cabin;
     }
 
-   @GetMapping("/getAll")
-   public List<WashCabinDto> getAll() throws SQLException {
+    @GetMapping("/getAll")
+    public List<WashCabinDto> getAll() throws SQLException {
         return service.getAll();
-   }
+    }
 
-   @GetMapping("/getActiveInactive")
+    @GetMapping("/getActiveInactive")
     public List<WashCabinDto> getActiveInactiveCabins() throws SQLException {
         return service.getActiveInactiveCabins();
-   }
+    }
 
-   @GetMapping("/getStatement")
+    @GetMapping("/getStatement")
     public List<WashCabinStatementDto> getCabinStatements() throws SQLException {
         return service.getCabinStatement();
-   }
+    }
 
-   @GetMapping("/getCategory")
+    @GetMapping("/getCategory")
     public List<WashCabinCategoryDto> getCategory() throws SQLException {
         return service.getCabinCategories();
-   }
+    }
 
-   @PostMapping("/getCabinDetails/{id}")
-    public List<WashCabinDetailDto> getCabinDetails(@PathVariable("id") String id) throws SQLException {
+    @GetMapping("/getCabinDetails/{id}")
+    public WashCabinDetailDto getCabinDetails(@PathVariable("id") String id) throws SQLException {
         return service.getCabinDetails(id);
-   }
+    }
 }

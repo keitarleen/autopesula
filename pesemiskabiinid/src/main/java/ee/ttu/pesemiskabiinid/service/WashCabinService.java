@@ -38,7 +38,7 @@ public class WashCabinService {
         return repository.getWashCabinCategory();
     }
 
-    public List<WashCabinDetailDto> getCabinDetails(String id) throws SQLException {
+    public WashCabinDetailDto getCabinDetails(String id) throws SQLException {
         return repository.getCabinDetail(id);
     }
 }
