@@ -46,7 +46,7 @@ public class WashCabinRepository {
                 "LEFT JOIN isik AS i ON i.isik_id=p.registreerija_id " +
                 "LEFT JOIN pesemiskabiini_tyyp AS pt ON pt.pesemiskabiini_tyyp_kood=p.pesemiskabiini_tyyp_kood " +
                 "LEFT JOIN pesemiskabiini_seisundi_liik AS ps ON ps.pesemiskabiini_seisundi_liik_kood=p.pesemiskabiini_seisundi_liik_kood " +
-                "WHERE ps.pesemiskabiini_seisundi_liik_kood IN ('AKT', 'EBA')";
+                "WHERE ps.pesemiskabiini_seisundi_liik_kood IN ('AKT', 'MAK')";
         return getCabinDto(sql);
     }
 
