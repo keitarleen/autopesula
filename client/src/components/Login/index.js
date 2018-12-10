@@ -18,7 +18,7 @@ class Login extends Component {
                 <h1>Login</h1>
                 <input ref='user' type='text' placeholder='Kasutajanimi'/>
                 <input ref='pwd' type='password' placeholder='Parool'/>
-                <Link to='all'><button onClick={this.checkUser}>Login</button></Link>
+                <Link to='all'><button className='btnDefault' onClick={this.checkUser}>Login</button></Link>
                 {this.props.children}
             </div>
         );

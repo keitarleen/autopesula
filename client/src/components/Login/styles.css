@@ -1,18 +1,19 @@
 button {
-    padding: 10px 20px;
     border-radius: 4px;
-    width: 100%;
-    border: 1px solid lightgrey;
-    background-color: lightgrey;
 }
 
-.container-centre button {
-    -webkit-transition: all 0.30s ease-in-out;
+.btnDefault {
     outline: none;
+    border: 1px solid lightgrey;
+    background-color: lightgrey;
+    width: 100%;
+    padding: 10px 20px;
+    -webkit-transition: all 0.10s ease-in-out;
 }
-.container-centre button:focus {
-    box-shadow: 0 0 5px #FCC551;
-    border: 1px solid #FCD051;
+
+.btnDefault:focus {
+    box-shadow: 0 0 5px #61dafb;
+    border: 1px solid #61dafb;
 }
 
 input {
