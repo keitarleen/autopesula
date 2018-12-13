@@ -24,9 +24,7 @@ public class WashCabinRepository {
     }
 
     public void save(WashCabin cabin) throws SQLException {
-        String sql = "INSERT INTO pesemiskabiin (pesemiskabiini_kood, registreerija_id, pesemiskabiini_seisundi_liik_kood, pesemiskabiini_tyyp_kood, nimetus, hoone_kood, " +
-                "max_auto_pikkus, reg_aeg, kommentaar) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "SELECT f_lisa_pesemiskabiin(?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement = ds.getConnection().prepareStatement(sql);
         preparedStatement.setString(1, cabin.getId());
         preparedStatement.setInt(2, cabin.getRegistrator().getId());
@@ -101,7 +99,7 @@ public class WashCabinRepository {
     }
 
     public String endCabin(String id) throws SQLException {
-        String sql = "UPDATE pesemiskabiin SET pesemiskabiini_seisundi_liik_kood='LOP' WHERE pesemiskabiini_kood=?";
+        String sql = "SELECT f_lopeta_pesemiskabiin(?)";
         PreparedStatement ps = ds.getConnection().prepareStatement(sql);
         ps.setString(1, id);
         ps.executeUpdate();
