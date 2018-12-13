@@ -22,6 +22,14 @@ h2 {
     margin-bottom: 20px;
 }
 
+p {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: lighter;
+    margin-top: 30px;
+    color: red;
+    font-size: 20px;
+}
+
 .btnDelete {
     background-color: red;
     border: 1px solid red;

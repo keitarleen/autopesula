@@ -30,7 +30,10 @@ td, th {
     min-width: 120px;
 }
 
-
+.carLength {
+    max-width: 150px;
+    min-width: 150px;
+}
 
 .code {
     max-width: 100px;

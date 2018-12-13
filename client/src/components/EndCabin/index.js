@@ -15,7 +15,7 @@ class EndCabin extends Component {
         const api = 'http://localhost:8080/api/cabin/endCabin/' + id;
         console.log(api);
         fetch(api).then(response => response);
-        alert('cabin ended');
+        window.location.reload();
     };
 
     getActiveInActive = () => {
@@ -34,7 +34,13 @@ class EndCabin extends Component {
     }
 
     render() {
-        return (
+        if (Object.keys(this.state.allActiveInactive).length === 0) {
+            return <div>
+                <h1>Lõpeta pesemiskabiin</h1>
+                <p>Hetkel pole ühtegi lõpetamisel pesemiskabiini</p>
+            </div>
+        }
+        else return (
             <div>
                 <h1>Lõpeta pesemiskabiin</h1>
                 <table>

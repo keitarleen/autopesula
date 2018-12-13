@@ -24,6 +24,11 @@ input {
     padding: 10px;
 }
 
+
+.container-centre input::-webkit-input-placeholder {
+    font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 .container-centre input {
     border-radius: 4px;
     display: block;
