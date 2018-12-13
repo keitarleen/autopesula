@@ -22,6 +22,22 @@ h2 {
     margin-bottom: 20px;
 }
 
+.btnDelete {
+    background-color: red;
+    border: 1px solid red;
+    outline: none;
+    padding: 10px 20px;
+}
+
+.btnDelete:hover {
+    background-color: white;
+    color: red;
+}
+
 .secondContainer {
     margin-top: 40px;
+}
+
+.filled {
+    background-color: #61dafb;
 }
