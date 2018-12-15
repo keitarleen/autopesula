@@ -79,7 +79,7 @@ public class WashCabinRepository {
     }
 
     public List<WashCabinDetailDto> getAllCabins() throws SQLException {
-        String sql = "SELECT * FROM pesemiskabiini_detailid";
+        String sql = "SELECT * FROM koik_pesemiskabiinid";
         ResultSet rs = ds.getConnection().createStatement().executeQuery(sql);
         List<WashCabinDetailDto> cabins = new ArrayList<>();
         while (rs.next()) {
