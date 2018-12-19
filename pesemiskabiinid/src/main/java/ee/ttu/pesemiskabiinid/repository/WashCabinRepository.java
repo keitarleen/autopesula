@@ -50,7 +50,7 @@ public class WashCabinRepository {
         while (rs.next()) {
             cabins.add(
                     new WashCabinStatementDto(
-                            rs.getString("kood"),
+                            rs.getString("pesemiskabiini_kood"),
                             rs.getString("pesemiskabiini_seisund"),
                             rs.getInt("kokku")
                     )
@@ -114,7 +114,7 @@ public class WashCabinRepository {
                     new WashCabinDto(
                             rs.getString("pesemiskabiini_kood"),
                             rs.getString("pesemiskabiini_nimetus"),
-                            rs.getString("tyyp"),
+                            rs.getString("pesemiskabiini_tyyp"),
                             rs.getString("seisund")
                     )
             );
