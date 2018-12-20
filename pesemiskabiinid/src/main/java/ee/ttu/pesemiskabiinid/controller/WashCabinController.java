@@ -36,11 +36,6 @@ public class WashCabinController {
         return service.getCabinStatement();
     }
 
-    @GetMapping("/getCategory")
-    public List<WashCabinCategoryDto> getCategory() throws SQLException {
-        return service.getCabinCategories();
-    }
-
     @GetMapping("/getAll")
     public List<WashCabinDetailDto> getAllCabins() throws SQLException {
         return service.getAllCabins();

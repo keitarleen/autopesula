@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class WashCabinRepository {
@@ -59,12 +60,13 @@ public class WashCabinRepository {
         return cabins;
     }
 
-    public List<WashCabinCategoryDto> getWashCabinCategory() throws SQLException {
+    public List<WashCabinCategoryDto> getWashCabinCategory(String id) throws SQLException {
         String sql = "SELECT pko.pesemiskabiini_kood, pesemiskabiini_kategooria.nimetus || '(' || pesemiskabiini_kategooria_tyyp.nimetus || ')' AS kategooria " +
                 "FROM pesemiskabiini_kategooria_tyyp " +
                 "INNER JOIN pesemiskabiini_kategooria " +
                 "ON pesemiskabiini_kategooria_tyyp.pesemiskabiini_kategooria_tyyp_kood = pesemiskabiini_kategooria.pesemiskabiini_kategooria_tyyp_kood " +
-                "INNER JOIN pesemiskabiini_kategooria_omamine pko ON pesemiskabiini_kategooria.pesemiskabiini_kategooria_kood = pko.pesemiskabiini_kategooria_kood";
+                "INNER JOIN pesemiskabiini_kategooria_omamine pko ON pesemiskabiini_kategooria.pesemiskabiini_kategooria_kood = pko.pesemiskabiini_kategooria_kood " +
+                "WHERE pko.pesemiskabiini_kood='" + id + "'";
         ResultSet rs = ds.getConnection().createStatement().executeQuery(sql);
         List<WashCabinCategoryDto> categories = new ArrayList<>();
         while (rs.next()) {
@@ -110,6 +112,8 @@ public class WashCabinRepository {
         String sql = "SELECT * FROM pesemiskabiini_detailid('" + id + "')";
         ResultSet rs = ds.getConnection().createStatement().executeQuery(sql);
         WashCabinDetailViewDto cabin = null;
+        List<WashCabinCategoryDto> cabinCategories = getWashCabinCategory(id);
+        List<String> categories;
         while (rs.next()) {
             cabin = new WashCabinDetailViewDto(
                     rs.getString("pesemiskabiini_kood"),
@@ -120,12 +124,16 @@ public class WashCabinRepository {
                     rs.getString("hoone_kood"),
                     rs.getDate("reg_aeg").toLocalDate(),
                     rs.getString("tootaja"),
-                    rs.getString("e_meil"),
-                    rs.getString("kategooria_nimetus"),
-                    rs.getString("kategooria_tyyp")
+                    rs.getString("e_meil")
                     );
         }
 
+        categories = cabinCategories.stream()
+                .map(WashCabinCategoryDto::getCategory)
+                .collect(Collectors.toList());
+        if (cabin != null) {
+            cabin.setCategoryType(categories);
+        }
         return cabin;
     }
 

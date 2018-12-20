@@ -30,10 +30,6 @@ public class WashCabinService {
         return repository.getWashCabinStatement();
     }
 
-    public List<WashCabinCategoryDto> getCabinCategories() throws SQLException {
-        return repository.getWashCabinCategory();
-    }
-
     public List<WashCabinDetailDto> getAllCabins() throws SQLException {
         return repository.getAllCabins();
     }
