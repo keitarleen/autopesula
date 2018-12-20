@@ -11,47 +11,46 @@ class CabinDetails extends Component {
                     <tbody>
                     <tr>
                         <td className='alignRight'>Pesemiskabiini kood: </td>
-                        <td>kood</td>
+                        <td>{this.props.details.id}</td>
                     </tr>
                     <tr>
                         <td className='alignRight'>Nimetus: </td>
-                        <td>data</td>
+                        <td>{this.props.details.name}</td>
                     </tr>
                     <tr>
                         <td className='alignRight'>Max auto pikkus: </td>
-                        <td>data</td>
+                        <td>{this.props.details.carLength} mm</td>
                     </tr>
                     <tr>
                         <td className='alignRight'>Hoone kood: </td>
-                        <td>data</td>
+                        <td>{this.props.details.building}</td>
                     </tr>
                     <tr>
                         <td className='alignRight'>Tüüp: </td>
-                        <td>data</td>
+                        <td>{this.props.details.type}</td>
                     </tr>
                     <tr>
                         <td className='alignRight'>Hetkeseisund: </td>
-                        <td>data</td>
+                        <td>{this.props.details.state}</td>
                     </tr>
                     <tr>
                         <td className='alignRight'>Registreerimis aeg: </td>
-                        <td>data</td>
+                        <td>{this.props.details.registration}</td>
                     </tr>
                     <tr>
                         <td className='alignRight'>Registreerija nimi: </td>
-                        <td>data</td>
+                        <td>{this.props.details.employee}</td>
                     </tr>
                     <tr>
                         <td className='alignRight'>Registreerija email: </td>
-                        <td>data</td>
+                        <td>{this.props.details.email}</td>
                     </tr>
                     <tr>
-                        <td className='alignRight'>Kategooriad: </td>
-                        <td>data</td>
-                    </tr>
-                    <tr>
-                        <td className='alignRight'>Kategooria tüüp: </td>
-                        <td>data</td>
+                        <td className='alignRight top'>Kategooriad: </td>
+                        {Object.values(this.props.details.categoryType).map((type) =>
+                            <td className='category' key={type}>{type}</td>
+                        )}
+
                     </tr>
                     </tbody>
                 </table>

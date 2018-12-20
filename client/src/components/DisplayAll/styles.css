@@ -31,6 +31,7 @@
 
 .data tr:hover {
     background-color: #dff7fe;
+    cursor: pointer;
 }
 
 .data a {
