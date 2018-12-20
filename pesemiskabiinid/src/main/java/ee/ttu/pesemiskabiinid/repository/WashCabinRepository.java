@@ -106,6 +106,29 @@ public class WashCabinRepository {
         return id;
     }
 
+    public WashCabinDetailViewDto getCabinDetails(String id) throws SQLException {
+        String sql = "SELECT * FROM pesemiskabiini_detailid('" + id + "')";
+        ResultSet rs = ds.getConnection().createStatement().executeQuery(sql);
+        WashCabinDetailViewDto cabin = null;
+        while (rs.next()) {
+            cabin = new WashCabinDetailViewDto(
+                    rs.getString("pesemiskabiini_kood"),
+                    rs.getString("nimetus"),
+                    rs.getString("pesemiskabiini_tyyp"),
+                    rs.getString("seisund"),
+                    rs.getInt("max_auto_pikkus"),
+                    rs.getString("hoone_kood"),
+                    rs.getDate("reg_aeg").toLocalDate(),
+                    rs.getString("tootaja"),
+                    rs.getString("e_meil"),
+                    rs.getString("kategooria_nimetus"),
+                    rs.getString("kategooria_tyyp")
+                    );
+        }
+
+        return cabin;
+    }
+
     private List<WashCabinDto> getCabinDto(String sql) throws SQLException {
         ResultSet rs = ds.getConnection().createStatement().executeQuery(sql);
         List<WashCabinDto> cabins = new ArrayList<>();

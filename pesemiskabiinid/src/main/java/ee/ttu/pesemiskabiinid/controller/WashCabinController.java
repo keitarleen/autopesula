@@ -50,4 +50,9 @@ public class WashCabinController {
     public String endCabin(@PathVariable("id") String id) throws SQLException {
         return service.endCabin(id);
     }
+
+    @GetMapping("getDetails/{id}")
+    public WashCabinDetailViewDto getCabinDetails(@PathVariable("id") String id) throws SQLException {
+        return service.getCabinDetails(id);
+    }
 }

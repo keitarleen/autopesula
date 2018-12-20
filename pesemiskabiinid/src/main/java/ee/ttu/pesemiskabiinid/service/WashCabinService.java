@@ -38,6 +38,10 @@ public class WashCabinService {
         return repository.getAllCabins();
     }
 
+    public WashCabinDetailViewDto getCabinDetails(String id) throws SQLException {
+        return repository.getCabinDetails(id);
+    }
+
     public String endCabin(String id) throws SQLException {
         return repository.endCabin(id);
     }
