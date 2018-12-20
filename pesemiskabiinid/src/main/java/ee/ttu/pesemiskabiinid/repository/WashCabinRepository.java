@@ -125,7 +125,7 @@ public class WashCabinRepository {
                     rs.getDate("reg_aeg").toLocalDate(),
                     rs.getString("tootaja"),
                     rs.getString("e_meil")
-                    );
+            );
         }
 
         categories = cabinCategories.stream()
@@ -137,13 +137,13 @@ public class WashCabinRepository {
         return cabin;
     }
 
-    public boolean isUserManager(String email, String password) throws SQLException {
+    public ManagerDto isUserManager(String email, String password) throws SQLException {
         String sql = "SELECT f_on_juhataja('" + email + "', '" + password + "')";
         ResultSet rs = ds.getConnection().createStatement().executeQuery(sql);
-        boolean manager = false;
+        ManagerDto manager = new ManagerDto();
 
         while (rs.next()) {
-            manager = rs.getBoolean(1);
+            manager.setIsManager(rs.getBoolean(1));
         }
 
         return manager;
