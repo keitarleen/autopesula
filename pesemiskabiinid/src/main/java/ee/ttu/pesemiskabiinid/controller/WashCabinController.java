@@ -50,4 +50,9 @@ public class WashCabinController {
     public WashCabinDetailViewDto getCabinDetails(@PathVariable("id") String id) throws SQLException {
         return service.getCabinDetails(id);
     }
+
+    @GetMapping("manager/{email}/{password}")
+    public boolean isUserManager(@PathVariable("email") String email, @PathVariable("password") String password) throws SQLException {
+        return service.isUserManager(email, password);
+    }
 }

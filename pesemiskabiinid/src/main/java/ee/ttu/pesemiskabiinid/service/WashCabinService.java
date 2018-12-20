@@ -41,4 +41,8 @@ public class WashCabinService {
     public String endCabin(String id) throws SQLException {
         return repository.endCabin(id);
     }
+
+    public boolean isUserManager(String email, String password) throws SQLException {
+        return repository.isUserManager(email, password);
+    }
 }

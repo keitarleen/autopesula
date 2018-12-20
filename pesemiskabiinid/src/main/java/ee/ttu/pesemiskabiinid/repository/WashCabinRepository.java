@@ -137,6 +137,18 @@ public class WashCabinRepository {
         return cabin;
     }
 
+    public boolean isUserManager(String email, String password) throws SQLException {
+        String sql = "SELECT f_on_juhataja('" + email + "', '" + password + "')";
+        ResultSet rs = ds.getConnection().createStatement().executeQuery(sql);
+        boolean manager = false;
+
+        while (rs.next()) {
+            manager = rs.getBoolean(1);
+        }
+
+        return manager;
+    }
+
     private List<WashCabinDto> getCabinDto(String sql) throws SQLException {
         ResultSet rs = ds.getConnection().createStatement().executeQuery(sql);
         List<WashCabinDto> cabins = new ArrayList<>();
