@@ -109,7 +109,7 @@ public class WashCabinRepository {
     }
 
     public WashCabinDetailViewDto getCabinDetails(String id) throws SQLException {
-        String sql = "SELECT * FROM pesemiskabiini_detailid('" + id + "')";
+        String sql = "SELECT * FROM f_pesemiskabiini_detailid('" + id + "')";
         ResultSet rs = ds.getConnection().createStatement().executeQuery(sql);
         WashCabinDetailViewDto cabin = null;
         List<WashCabinCategoryDto> cabinCategories = getWashCabinCategory(id);
