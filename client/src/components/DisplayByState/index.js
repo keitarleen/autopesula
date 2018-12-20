@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './styles.css';
 
 class DisplayByState extends Component {
     constructor(props) {
@@ -28,6 +29,7 @@ class DisplayByState extends Component {
         return (
             <div>
                 <h1>Pesemiskabiinide koondaruanne</h1>
+                <div className='cabinStates'>
                 <table>
                     <tbody>
                     <tr>
@@ -47,6 +49,7 @@ class DisplayByState extends Component {
                         </tbody>
                     </table>
                     )}
+                </div>
             </div>
         );
     }

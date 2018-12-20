@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './styles.css';
+import {Link} from 'react-router';
 
 class DisplayAll extends Component {
     constructor(props) {
@@ -29,38 +30,39 @@ class DisplayAll extends Component {
         return (
             <div className='container'>
                 <h1>Kõik pesemiskabiinid</h1>
-                <table>
-                <tbody>
-                <tr>
-                    <th className='code'>Kabiini kood</th>
-                    <th>Kabiini nimi</th>
-                    <th>Kabiini tüüp</th>
-                    <th className='carLength'>Max auto pikkus (mm)</th>
-                    <th className='code'>Hoone kood</th>
-                    <th>Hetkeseisund</th>
-                    <th>Registreerija</th>
-                    <th className='regEmail'>Reg email</th>
-                </tr>
-                </tbody>
-                </table>
+                <div className='allCabins'>
+                    <table>
+                    <tbody>
+                    <tr>
+                        <th className='code'>Kabiini kood</th>
+                        <th className='short'>Kabiini nimi</th>
+                        <th className='short'>Kabiini tüüp</th>
+                        <th className='carLength'>Max auto pikkus (mm)</th>
+                        <th className='code'>Hoone kood</th>
+                        <th className='short'>Hetkeseisund</th>
+                        <th className='short'>Registreerija</th>
+                        <th className='regEmail'>Reg email</th>
+                    </tr>
+                    </tbody>
+                    </table>
 
                     {Object.keys(this.state.allCabins).map((key) =>
-                        <table >
+                        <table className="data">
                             <tbody key={this.state.allCabins[key].id}>
-                                <tr>
+                                <Link to='details'><tr>
                                     <td className='code'>{this.state.allCabins[key].id}</td>
-                                    <td>{this.state.allCabins[key].name}</td>
-                                    <td>{this.state.allCabins[key].cabinType}</td>
+                                    <td className='short'>{this.state.allCabins[key].name}</td>
+                                    <td className='short'>{this.state.allCabins[key].cabinType}</td>
                                     <td className='carLength'>{this.state.allCabins[key].carLength}</td>
                                     <td className='code'>{this.state.allCabins[key].building}</td>
-                                    <td>{this.state.allCabins[key].state}</td>
-                                    <td>{this.state.allCabins[key].employee}</td>
-                                    <td className='regEmail'>{this.state.allCabins[key].email}</td>
-                                </tr>
+                                    <td className='short'>{this.state.allCabins[key].state}</td>
+                                    <td className='short'>{this.state.allCabins[key].employee}</td>
+                                    <td className='regEmail right'>{this.state.allCabins[key].email}</td>
+                                </tr></Link>
                             </tbody>
                         </table>
                 )}
-
+                </div>
             </div>
         );
     }
