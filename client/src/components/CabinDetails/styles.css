@@ -1,0 +1,26 @@
+.row {
+    display: inline-block;
+}
+
+.details table {
+    border: none;
+    margin: auto;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: lighter;
+    color: black;
+    align-content: left;
+    text-align: left;
+    min-width: 200px;
+}
+
+.details td {
+    padding: 5px;
+}
+
+.alignRight {
+    text-align: right;
+    padding-right: 20px;
+}
+
+
+

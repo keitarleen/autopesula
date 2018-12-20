@@ -6,6 +6,7 @@ import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 import Layout from './components/Layout';
 import DisplayByState from './components/DisplayByState';
 import EndCabin from './components/EndCabin';
+import CabinDetails from './components/CabinDetails';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
                   <Route path='all' component={DisplayAll}/>
                   <Route path='states' component={DisplayByState}/>
                   <Route path='endCabin' component={EndCabin}/>
+                  <Route path='details' component={CabinDetails}/>
               </Route>
           </Router>
       </div>

@@ -1,0 +1,24 @@
+.cabinStates table {
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.cabinStates th {
+    border: #61dafb solid 1px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: lighter;
+    color: black;
+    padding: 7px;
+    min-width: 120px;
+    max-width: 120px;
+}
+
+.cabinStates td {
+    border: #61dafb solid 1px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: lighter;
+    color: black;
+    padding: 7px;
+    min-width: 120px;
+    max-width: 120px;
+}

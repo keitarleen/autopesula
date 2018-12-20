@@ -43,13 +43,14 @@ class EndCabin extends Component {
         else return (
             <div>
                 <h1>Lõpeta pesemiskabiin</h1>
+                <div className='endCabin'>
                 <table>
                     <tbody>
                     <tr>
-                        <th>Pesemiskabiini kood</th>
-                        <th>Pesemiskabiini nimi</th>
-                        <th>Seisund</th>
-                        <th className='filled'> </th>
+                        <th className='short'>Pesemiskabiini kood</th>
+                        <th className='medium'>Pesemiskabiini nimi</th>
+                        <th className='short'>Seisund</th>
+                        <th className='btn filled'> </th>
                     </tr>
                     </tbody>
                 </table>
@@ -58,14 +59,15 @@ class EndCabin extends Component {
                     <table key={this.state.allActiveInactive[key].id}>
                         <tbody>
                         <tr>
-                            <td>{this.state.allActiveInactive[key].id}</td>
-                            <td>{this.state.allActiveInactive[key].name}</td>
-                            <td>{this.state.allActiveInactive[key].state}</td>
-                            <td><button className='btnDelete' onClick={() => {this.endCabin(this.state.allActiveInactive[key].id)}}>Lõpeta</button></td>
+                            <td className='short'>{this.state.allActiveInactive[key].id}</td>
+                            <td className='medium'>{this.state.allActiveInactive[key].name}</td>
+                            <td className='short'>{this.state.allActiveInactive[key].state}</td>
+                            <td className='btn'><button className='btnDelete' onClick={() => {this.endCabin(this.state.allActiveInactive[key].id)}}>Lõpeta</button></td>
                         </tr>
                         </tbody>
                     </table>
                 )}
+                </div>
             </div>
         );
     }
