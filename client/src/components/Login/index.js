@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import './styles.css';
+import DisplayAll from '../DisplayAll';
+import {Link} from 'react-router';
+import NavBar from '../NavBar';
 
 class Login extends Component {
     constructor(props) {
@@ -25,13 +28,19 @@ class Login extends Component {
 
     componentDidUpdate() {
         if (this.state.isManager) {
-            this.props.router.push("/all");
+            this.props.router.push({
+                pathname: '/all',
+                state: { auth: this.state.isManager }
+            });
         }
     }
 
     render() {
         return (
-            <div className='container-centre'>
+            <div className='container'>
+                <NavBar/>
+                <div className='container-centre'>
+                {this.props.children}
                 <h1>Login</h1>
                 <form>
                     <label>ward.richard@comvoy.co.uk</label>
@@ -41,6 +50,7 @@ class Login extends Component {
                 <button type='submit' className='btnDefault' onClick={this.checkUser}>Login</button>
                 </form>
                     {this.props.children}
+                </div>
             </div>
         );
     }

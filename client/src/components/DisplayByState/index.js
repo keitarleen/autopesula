@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './styles.css';
+import NavBarAuth from '../NavBarAuth';
 
 class DisplayByState extends Component {
     constructor(props) {
@@ -28,6 +29,7 @@ class DisplayByState extends Component {
     render() {
         return (
             <div>
+                <NavBarAuth/>
                 <h1>Pesemiskabiinide koondaruanne</h1>
                 <div className='cabinStates'>
                 <table>

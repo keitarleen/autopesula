@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './styles.css';
 import CabinDetails from '../CabinDetails';
+import NavBarAuth from '../NavBarAuth';
+import NavBar from '../NavBar';
 
 class DisplayAll extends Component {
     constructor(props) {
@@ -9,7 +11,8 @@ class DisplayAll extends Component {
             allCabins: {},
             isLoaded: false,
             cabinDetails: {},
-            exists: false
+            exists: false,
+            auth: false
         }
     }
 
@@ -41,12 +44,14 @@ class DisplayAll extends Component {
     }
 
     render() {
+        console.log(this.state);
         if (this.state.exists === true) {
             return <CabinDetails details={this.state.cabinDetails}/>
         }
         else
             return (
                 <div className='container'>
+                    <NavBarAuth/>
                     <h1>Kõik pesemiskabiinid</h1>
                     <div className='allCabins'>
                         <table>

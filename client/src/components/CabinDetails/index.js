@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './styles.css';
+import NavBarAuth from '../NavBarAuth';
 
 class CabinDetails extends Component {
 
@@ -9,7 +10,10 @@ class CabinDetails extends Component {
 
     render() {
         return (
+            <div className='container'>
+                <NavBarAuth/>
             <div className='container-centre'>
+
                 <h1>Pesemiskabiini detailid</h1>
                 <div className='details'>
                 <table>
@@ -61,6 +65,7 @@ class CabinDetails extends Component {
                 </table>
                     <button className='btnDefault long' onClick={() => {this.goBack()}}>Tagasi Kõikide pesemiskabiinide vaatesse</button>
                 </div>
+            </div>
             </div>
         );
     }

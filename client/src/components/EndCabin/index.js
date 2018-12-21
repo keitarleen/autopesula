@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './styles.css';
+import NavBarAuth from '../NavBarAuth';
 
 class EndCabin extends Component {
     constructor(props) {
@@ -38,12 +39,14 @@ class EndCabin extends Component {
     render() {
         if (Object.keys(this.state.allActiveInactive).length === 0) {
             return <div>
+                <NavBarAuth/>
                 <h1>Lõpeta pesemiskabiin</h1>
                 <p>Hetkel pole ühtegi lõpetamisel pesemiskabiini</p>
             </div>
         }
         else return (
             <div>
+                <NavBarAuth/>
                 <h1>Lõpeta pesemiskabiin</h1>
                 <div className='endCabin'>
                 <table>
