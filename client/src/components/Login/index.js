@@ -1,35 +1,46 @@
 import React, {Component} from 'react';
 import './styles.css';
-import {Link, Redirect} from 'react-router';
 
 class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: '',
-            pwd: '',
-            toAll: false
+            user: ' ',
+            pwd: ' ',
+            isManager: false
         };
     }
 
     checkUser = () => {
-        if (this.refs.user.value === 'juhataja' && this.refs.pwd.value === 'admin') {
-            this.setState({toAll: true});
-        }
-        else { alert('sa pole juhataja lol, aga läheb ikka edasi xd'); }
+        const api = 'http://localhost:8080/api/cabin/manager/' + this.refs.user.value + '/' + this.refs.pwd.value;
+        fetch(api)
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    isManager: data.isManager
+                });
+                console.log(this.state.isManager);
+            });
     };
 
-    render() {
-        if (this.state.toAll === true) {
-            return <Redirect push to='/all'/>;
+    componentDidUpdate() {
+        if (this.state.isManager) {
+            this.props.router.push("/all");
         }
+    }
+
+    render() {
         return (
             <div className='container-centre'>
                 <h1>Login</h1>
+                <form>
+                    <label>ward.richard@comvoy.co.uk</label>
                 <input ref='user' type='text' placeholder='Kasutajanimi'/>
-                <input ref='pwd' type='password' placeholder='Parool'/>
-                <button className='btnDefault' onClick={this.checkUser}>Login</button>
-                {this.props.children}
+                    <label>incididunt</label>
+                    <input ref='pwd' type='password' placeholder='Parool'/>
+                <button type='submit' className='btnDefault' onClick={this.checkUser}>Login</button>
+                </form>
+                    {this.props.children}
             </div>
         );
     }

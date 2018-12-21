@@ -18,7 +18,7 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: lighter;
     color: black;
-    padding: 5px;
+    padding: 7px;
 }
 
 .allCabins td {
@@ -26,7 +26,7 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: lighter;
     color: black;
-    padding: 5px;
+    padding: 7px;
 }
 
 .data tr:hover {

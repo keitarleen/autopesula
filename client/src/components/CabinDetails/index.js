@@ -2,9 +2,14 @@ import React, {Component} from 'react';
 import './styles.css';
 
 class CabinDetails extends Component {
+
+    goBack = () => {
+        window.location.reload();
+    };
+
     render() {
         return (
-            <div className='container'>
+            <div className='container-centre'>
                 <h1>Pesemiskabiini detailid</h1>
                 <div className='details'>
                 <table>
@@ -34,7 +39,7 @@ class CabinDetails extends Component {
                         <td>{this.props.details.state}</td>
                     </tr>
                     <tr>
-                        <td className='alignRight'>Registreerimis aeg: </td>
+                        <td className='alignRight'>Registreerimisaeg: </td>
                         <td>{this.props.details.registration}</td>
                     </tr>
                     <tr>
@@ -47,13 +52,14 @@ class CabinDetails extends Component {
                     </tr>
                     <tr>
                         <td className='alignRight top'>Kategooriad: </td>
+
                         {Object.values(this.props.details.categoryType).map((type) =>
                             <td className='category' key={type}>{type}</td>
                         )}
-
                     </tr>
                     </tbody>
                 </table>
+                    <button className='btnDefault long' onClick={() => {this.goBack()}}>Tagasi Kõikide pesemiskabiinide vaatesse</button>
                 </div>
             </div>
         );

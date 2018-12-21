@@ -15,7 +15,8 @@ class DisplayAll extends Component {
 
     getAll = () => {
         const api = 'http://localhost:8080/api/cabin/getAll';
-        fetch(api).then(response => response.json())
+        fetch(api)
+            .then(response => response.json())
             .then(data => {
                 this.setState( {
                     allCabins: data,

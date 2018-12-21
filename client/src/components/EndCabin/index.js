@@ -13,8 +13,10 @@ class EndCabin extends Component {
 
     endCabin = (id) => {
         const api = 'http://localhost:8080/api/cabin/endCabin/' + id;
-        console.log(api);
-        fetch(api).then(response => response);
+        fetch(api).then(response => {
+            console.log(response);
+        });
+
         window.location.reload();
     };
 

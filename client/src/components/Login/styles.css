@@ -4,16 +4,21 @@ button {
 
 .btnDefault {
     outline: none;
-    border: 1px solid lightgrey;
-    background-color: lightgrey;
+    border: 1px solid #87CEEB;
+    background-color: #61dafb;
     width: 100%;
     padding: 10px 20px;
     -webkit-transition: all 0.10s ease-in-out;
+    margin-top: 10px;
 }
 
 .btnDefault:focus {
     box-shadow: 0 0 5px #61dafb;
     border: 1px solid #61dafb;
+}
+
+.btnDefault:hover {
+    background-color: #dff7fe;
 }
 
 input {
@@ -22,6 +27,7 @@ input {
     font-size: 14px;
     -webkit-appearance: textfield;
     padding: 10px;
+    margin-top: 10px;
 }
 
 
