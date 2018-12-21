@@ -55,11 +55,7 @@ class DisplayAll extends Component {
                                 <th className='code'>Kabiini kood</th>
                                 <th className='short'>Kabiini nimi</th>
                                 <th className='short'>Kabiini tüüp</th>
-                                <th className='carLength'>Max auto pikkus (mm)</th>
-                                <th className='code'>Hoone kood</th>
                                 <th className='short'>Hetkeseisund</th>
-                                <th className='short'>Registreerija</th>
-                                <th className='regEmail'>Reg email</th>
                             </tr>
                             </tbody>
                         </table>
@@ -71,11 +67,7 @@ class DisplayAll extends Component {
                                     <td className='code'>{this.state.allCabins[key].id}</td>
                                     <td className='short'>{this.state.allCabins[key].name}</td>
                                     <td className='short'>{this.state.allCabins[key].cabinType}</td>
-                                    <td className='carLength'>{this.state.allCabins[key].carLength}</td>
-                                    <td className='code'>{this.state.allCabins[key].building}</td>
                                     <td className='short'>{this.state.allCabins[key].state}</td>
-                                    <td className='short'>{this.state.allCabins[key].employee}</td>
-                                    <td className='regEmail right'>{this.state.allCabins[key].email}</td>
                                 </tr>
                                 </tbody>
                             </table>
