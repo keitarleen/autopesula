@@ -87,14 +87,9 @@ public class WashCabinRepository {
         while (rs.next()) {
             cabins.add(new WashCabinDetailDto(
                     rs.getString("pesemiskabiini_kood"),
-                    rs.getString("nimetus"),
+                    rs.getString("kabiini_nimetus"),
                     rs.getString("kabiini_tyyp"),
-                    rs.getString("seisundi_liik"),
-                    rs.getInt("max_auto_pikkus"),
-                    rs.getString("hoone_kood"),
-                    rs.getDate("reg_aeg").toLocalDate(),
-                    rs.getString("tootaja"),
-                    rs.getString("e_meil")
+                    rs.getString("seisundi_liik")
             ));
         }
         return cabins;
