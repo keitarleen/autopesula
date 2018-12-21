@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import './styles.css';
-import DisplayAll from '../DisplayAll';
-import {Link} from 'react-router';
 import NavBar from '../NavBar';
 
 class Login extends Component {
@@ -43,9 +41,7 @@ class Login extends Component {
                 {this.props.children}
                 <h1>Login</h1>
                 <form>
-                    <label>ward.richard@comvoy.co.uk</label>
-                <input ref='user' type='text' placeholder='Kasutajanimi'/>
-                    <label>incididunt</label>
+                    <input ref='user' type='text' placeholder='Kasutajanimi'/>
                     <input ref='pwd' type='password' placeholder='Parool'/>
                 <button type='submit' className='btnDefault' onClick={this.checkUser}>Login</button>
                 </form>

@@ -40,14 +40,17 @@ class EndCabin extends Component {
         if (Object.keys(this.state.allActiveInactive).length === 0) {
             return <div>
                 <NavBarAuth/>
-                <h1>Lõpeta pesemiskabiin</h1>
-                <p>Hetkel pole ühtegi lõpetamisel pesemiskabiini</p>
+                <div className='container'>
+                <h1 className='centre'>Lõpeta pesemiskabiin</h1>
+                <p className='centre'>Hetkel pole ühtegi lõpetamisel pesemiskabiini</p>
+                </div>
             </div>
         }
         else return (
             <div>
                 <NavBarAuth/>
-                <h1>Lõpeta pesemiskabiin</h1>
+                <div className='container'>
+                <h1 className='centre'>Lõpeta pesemiskabiin</h1>
                 <div className='endCabin'>
                 <table>
                     <tbody>
@@ -72,6 +75,7 @@ class EndCabin extends Component {
                         </tbody>
                     </table>
                 )}
+                </div>
                 </div>
             </div>
         );

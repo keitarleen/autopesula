@@ -30,6 +30,7 @@ class DisplayByState extends Component {
         return (
             <div>
                 <NavBarAuth/>
+                <div className='container-centre'>
                 <h1>Pesemiskabiinide koondaruanne</h1>
                 <div className='cabinStates'>
                 <table>
@@ -51,6 +52,7 @@ class DisplayByState extends Component {
                         </tbody>
                     </table>
                     )}
+                </div>
                 </div>
             </div>
         );

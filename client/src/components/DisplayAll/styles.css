@@ -19,6 +19,7 @@
     font-weight: lighter;
     color: black;
     padding: 7px;
+    text-align: center;
 }
 
 .allCabins td {
@@ -27,6 +28,7 @@
     font-weight: lighter;
     color: black;
     padding: 7px;
+    text-align: center;
 }
 
 .data tr:hover {
@@ -56,5 +58,9 @@
 .regEmail {
     max-width: 180px;
     min-width: 180px;
+}
+
+.centre {
+    text-align: center;
 }
 

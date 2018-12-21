@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './styles.css';
 import CabinDetails from '../CabinDetails';
 import NavBarAuth from '../NavBarAuth';
-import NavBar from '../NavBar';
 
 class DisplayAll extends Component {
     constructor(props) {
@@ -52,7 +51,7 @@ class DisplayAll extends Component {
             return (
                 <div className='container'>
                     <NavBarAuth/>
-                    <h1>Kõik pesemiskabiinid</h1>
+                    <h1 className='centre'>Kõik pesemiskabiinid</h1>
                     <div className='allCabins'>
                         <table>
                             <tbody>
