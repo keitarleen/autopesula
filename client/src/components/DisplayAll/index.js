@@ -43,7 +43,6 @@ class DisplayAll extends Component {
     }
 
     render() {
-        console.log(this.state);
         if (this.state.exists === true) {
             return <CabinDetails details={this.state.cabinDetails}/>
         }

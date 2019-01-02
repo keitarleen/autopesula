@@ -20,7 +20,6 @@ class Login extends Component {
                 this.setState({
                     isManager: data.isManager
                 });
-                console.log(this.state.isManager);
             });
     };
 
@@ -29,8 +28,9 @@ class Login extends Component {
             this.props.router.push({
                 pathname: '/all',
                 state: { auth: this.state.isManager }
-            });
+            }); console.log('smth'); return true;
         }
+        else return false;
     }
 
     render() {
